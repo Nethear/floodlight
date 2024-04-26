@@ -3,29 +3,88 @@
 #             https://www.jetbrains.com/help/qodana/qodana-yaml.html            #
 #-------------------------------------------------------------------------------#
 version: "1.0"
-
 #Specify inspection profile for code analysis
 profile:
   name: qodana.starter
-
 #Enable inspections
 #include:
 #  - name: <SomeEnabledInspectionId>
-
 #Disable inspections
 #exclude:
 #  - name: <SomeDisabledInspectionId>
 #    paths:
 #      - <path/where/not/run/inspection>
-
 projectJDK: 21 #(Applied in CI/CD pipeline)
-
 #Execute shell command before Qodana execution (Applied in CI/CD pipeline)
 #bootstrap: sh ./prepare-qodana.sh
-
 #Install IDE plugins before Qodana execution (Applied in CI/CD pipeline)
 #plugins:
 #  - id: <plugin.id> #(plugin id can be found at https://plugins.jetbrains.com)
-
 #Specify Qodana linter for analysis (Applied in CI/CD pipeline)
 linter: jetbrains/qodana-jvm-community:latest
+include:
+  - name: FinalPrivateMethod
+  - name: FinalStaticMethod
+  - name: FieldCanBeLocal
+  - name: NonFinalFieldInEnum
+  - name: ThrowablePrintStackTrace
+  - name: CommentedOutCode
+  - name: Deprecation
+  - name: SizeReplaceableByIsEmpty
+  - name: FieldMayBeFinal
+  - name: CharsetObjectCanBeUsed
+  - name: TypeParameterExtendsObject
+  - name: UnnecessaryToStringCall
+  - name: UnnecessaryCallToStringValueOf
+  - name: UnnecessaryModifier
+  - name: SwitchStatementWithTooFewBranches
+  - name: TrivialIf
+  - name: GroovyTrivialIf
+  - name: UnnecessaryLocalVariable
+  - name: DuplicateThrows
+  - name: UNUSED_IMPORT
+  - name: DanglingJavadoc
+  - name: JavadocReference
+  - name: JavadocDeclaration
+  - name: StringEqualsEmptyString
+  - name: RegExpRedundantEscape
+  - name: StringBufferReplaceableByString
+  - name: ConditionCoveredByFurtherCondition
+  - name: NonStrictComparisonCanBeEquality
+  - name: StringOperationCanBeSimplified
+  - name: RedundantArrayCreation
+  - name: RedundantTypeArguments
+  - name: RedundantCast
+  - name: UnnecessaryReturn
+exclude:
+  - name: All
+    paths:
+      - docs
+      - src/main/java/net/floodlightcontroller/accesscontrollist
+      - src/main/java/net/floodlightcontroller/core
+      - src/main/java/net/floodlightcontroller/cpanalyzer
+      - src/main/java/net/floodlightcontroller/debugcounter
+      - src/main/java/net/floodlightcontroller/devicemanager
+      - src/main/java/net/floodlightcontroller/dhcpserver
+      - src/main/java/net/floodlightcontroller/firewall
+      - src/main/java/net/floodlightcontroller/flowcache
+      - src/main/java/net/floodlightcontroller/forwarding
+      - src/main/java/net/floodlightcontroller/hasupport
+      - src/main/java/net/floodlightcontroller/hub
+      - src/main/java/net/floodlightcontroller/jython
+      - src/main/java/net/floodlightcontroller/learningswitch
+      - src/main/java/net/floodlightcontroller/linkdiscovery
+      - src/main/java/net/floodlightcontroller/loadbalancer
+      - src/main/java/net/floodlightcontroller/packet
+      - src/main/java/net/floodlightcontroller/packetstreamer
+      - src/main/java/net/floodlightcontroller/perfmon
+      - src/main/java/net/floodlightcontroller/restserver
+      - src/main/java/net/floodlightcontroller/routing
+      - src/main/java/net/floodlightcontroller/simpleft
+      - src/main/java/net/floodlightcontroller/staticentry
+      - src/main/java/net/floodlightcontroller/statistics
+      - src/main/java/net/floodlightcontroller/storage
+      - src/main/java/net/floodlightcontroller/topology
+      - src/main/java/net/floodlightcontroller/util
+      - src/main/java/net/floodlightcontroller/virtualnetwork
+      - src/main/java/org
