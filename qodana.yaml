@@ -88,3 +88,5 @@ exclude:
       - src/main/java/net/floodlightcontroller/util
       - src/main/java/net/floodlightcontroller/virtualnetwork
       - src/main/java/org
+      - lib
+      - src/main/java/net/floodlightcontroller/threadpool
